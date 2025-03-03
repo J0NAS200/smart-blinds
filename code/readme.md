@@ -1,4 +1,4 @@
-# Simplified Blinds Control without AccelStepper
+# Smart Blinds
 
 Tento projekt slouží k ovládání žaluzií pomocí krokového motoru řízeného přes standard Matter a protokol Thread.  
 Kód obsahuje dva režimy:
