@@ -6,6 +6,8 @@
 
 Tyto dva modely byly staženy z portálu Printables a následně vytištěny autorem.  
 
-**3D tisk** probíhal na tiskárně **Prusa MINI+** s **0,6mm tryskou**.  
+**3D tisk** probíhal na tiskárně **Prusa MINI+** s **0,6mm tryskou**:  
 - Všechny díly navržené autorem (kryty, převody atd.) byly tištěny z **recyklovaného PLA**.  
-- Samotný držák (mount) je pak vytištěn z **PETG**, aby byl odolnější vůči namáhání a teplotám.
+- Držák (mount) a naviják rolet jsou vytištěny z **PETG**, aby byly odolnější vůči vyšším teplotám a mechanickému namáhání.
+
+**Montáž víka baterie** je řešena pomocí **2mm ISO šroubů**, které zajišťují pevné uzavření a snadné sundání víka v případě potřeby.
