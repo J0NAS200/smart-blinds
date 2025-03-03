@@ -1,4 +1,11 @@
-Všechny modely, jsou designované i vytvořené autorem.
-Jediná výjimka je držák na stepper a navyják rolet, který autor vytiskl, po stáhnutí modelu: https://www.printables.com/model/20287-nema-17-mount/files a https://www.printables.com/model/371583-blind-gear-for-automated-blinds-moeshouse/collections
+**Všechny modely** (tzn. většina krytů, upevňovacích dílů a ostatního příslušenství) navrhl a vytvořil autor. 
 
-Vše je tištěno na 3d tiskárně Prusa MINI+, s 0.6 tryskou. Modely jsou tištěny z rycklovaného PLA, až na držák, ten je z PETG.
+**Výjimky** jsou pouze:  
+- [Držák na krokový motor (NEMA 17 mount)](https://www.printables.com/model/20287-nema-17-mount/files)  
+- [Naviják rolet (Blind gear for automated blinds)](https://www.printables.com/model/371583-blind-gear-for-automated-blinds-moeshouse/collections)  
+
+Tyto dva modely byly staženy z portálu Printables a následně vytištěny autorem.  
+
+**3D tisk** probíhal na tiskárně **Prusa MINI+** s **0,6mm tryskou**.  
+- Všechny díly navržené autorem (kryty, převody atd.) byly tištěny z **recyklovaného PLA**.  
+- Samotný držák (mount) je pak vytištěn z **PETG**, aby byl odolnější vůči namáhání a teplotám.
