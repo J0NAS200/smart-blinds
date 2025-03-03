@@ -1,4 +1,4 @@
-# Smart Blinds
+# Simplified Blinds Control without AccelStepper
 
 Tento projekt slouží k ovládání žaluzií pomocí krokového motoru řízeného přes standard Matter a protokol Thread.  
 Kód obsahuje dva režimy:
@@ -7,6 +7,8 @@ Kód obsahuje dva režimy:
 
 Zařízení ukládá koncové polohy (min/max) a aktuální polohu do EEPROM, což umožňuje zachovat nastavení i po vypnutí napájení.
 
+---
+
 ## Hlavní rysy projektu
 
 1. **Nízká spotřeba** – Po delší nečinnosti se driver motoru uspává.  
@@ -14,6 +16,8 @@ Zařízení ukládá koncové polohy (min/max) a aktuální polohu do EEPROM, co
 3. **Podpora Matter** – Komunikuje s Matter Window Covering (např. Home Assistant, Apple Home, Google Home apod.).  
 4. **Kalibrace v terénu** – Mechanickým přepínačem a dvěma tlačítky lze snadno nastavit minimální a maximální polohu.  
 5. **Zápis do EEPROM** – Konfigurace a aktuální stav se ukládají jen po určité době, aby se minimalizoval počet zápisů.
+
+---
 
 ## Struktura souborů
 
@@ -26,6 +30,8 @@ Zařízení ukládá koncové polohy (min/max) a aktuální polohu do EEPROM, co
 - **README.md** *(tento soubor)*  
   Vysvětluje cíle projektu, strukturu kódu, instalaci a konfiguraci.
 
+---
+
 ## Závislosti / Knihovny
 
 - **Arduino Core** pro příslušnou desku (např. Seeed Studio XIAO MG24 nebo jiné Arduino-kompatibilní MCU).  
@@ -33,19 +39,23 @@ Zařízení ukládá koncové polohy (min/max) a aktuální polohu do EEPROM, co
 - **Matter.h**, **MatterWindowCovering.h**: Knihovny (SDK) pro implementaci protokolu Matter na MCU.  
   *(Konkrétní instalace závisí na výrobci čipu a integraci Thread/Matter; pro XIAO MG24 je třeba postupovat dle SeeedStudio dokumentace.)*
 
+---
+
 ## Hardwarové zapojení (stručně)
 
-| Pin              | Popis                                 |
-|------------------|---------------------------------------|
-| D0 (MOTOR_ENABLE_PIN) | Aktivace/deaktivace driveru (active LOW) |
-| D1 (STEP_PIN)         | Generování krokových pulzů (posun motoru) |
-| D2 (DIRECTION_PIN)    | Řídí směr otáčení motoru (HIGH/LOW)       |
-| D5 (LED_RED)          | Červená LED (signál různých stavů)        |
-| D6 (LED_GREEN)        | Zelená LED (signál různých stavů)         |
-| D7 (MOVE_UP_BUTTON)   | Tlačítko pro ruční posun vzhůru            |
-| D8 (MOVE_DOWN_BUTTON) | Tlačítko pro ruční posun dolů              |
-| D9 (SLEEP_PIN)        | Uspání / probuzení driveru (HIGH = awake) |
-| D10 (MODE_SWITCH_PIN) | Přepínač mezi kalibračním a Matter režimem |
+| Pin                   | Popis                                                    |
+|-----------------------|----------------------------------------------------------|
+| **D0 (MOTOR_ENABLE_PIN)** | Aktivace/deaktivace driveru (active LOW)                 |
+| **D1 (STEP_PIN)**         | Generování krokových pulzů (posun motoru)                 |
+| **D2 (DIRECTION_PIN)**    | Řídí směr otáčení motoru (HIGH/LOW)                       |
+| **D5 (LED_RED)**          | Červená LED (signál různých stavů)                        |
+| **D6 (LED_GREEN)**        | Zelená LED (signál různých stavů)                         |
+| **D7 (MOVE_UP_BUTTON)**   | Tlačítko pro ruční posun vzhůru                            |
+| **D8 (MOVE_DOWN_BUTTON)** | Tlačítko pro ruční posun dolů                              |
+| **D9 (SLEEP_PIN)**        | Uspání / probuzení driveru (HIGH = awake)                 |
+| **D10 (MODE_SWITCH_PIN)** | Přepínač mezi kalibračním a Matter režimem                |
+
+---
 
 ## Popis režimů
 
@@ -58,6 +68,8 @@ Zařízení ukládá koncové polohy (min/max) a aktuální polohu do EEPROM, co
    - Zařízení čte cílovou polohu z Matter sítě (uživatel zadává procentuální otevření).  
    - Krokový motor se přesune do požadované pozice a stav se odesílá zpět do Matter.  
    - LED jsou většinu času vypnuté, červená LED se rozsvítí pouze po dobu pohybu.
+
+---
 
 ## Jak kód používat
 
@@ -76,22 +88,13 @@ Zařízení ukládá koncové polohy (min/max) a aktuální polohu do EEPROM, co
    - V sériovém výpisu se zobrazí párovací informace (manuální kód, QR kód).  
    - Po úspěšném spárování lze zařízení ovládat přes příslušnou aplikaci nebo hlasovým asistentem.
 
-## Tipy a další úpravy
-
-- **Změna rychlosti krokování**  
-  Upravte konstanty `STEP_DELAY_CALIBRATION` a `STEP_DELAY_MATTER` v `blinds_with_matter.ino`.
-- **Změna počtu kroků na stisk v kalibračním režimu**  
-  Upravte `STEPS_PER_PRESS`.
-- **Interval uspání / ukládání**  
-  Upravte `MOTOR_DISABLE_INTERVAL` a `AUTO_SAVE_INTERVAL` podle preferencí.  
-- **Rozšíření o senzory**  
-  Přidejte analogové čidlo světla či teploty a řiďte žaluzie podle reálných podmínek (např. automatické stínění).
-
-## Licence
-
-Distributed under the **MIT License**. See the [LICENSE](#license-contents) section below for details.
-
 ---
 
-### License Contents
+## Commissioning QR Code
+
+Níže uvedený QR kód slouží k zahájení párování (commissioningu) v rámci Matter sítě. 
+
+![image](https://github.com/user-attachments/assets/94fd2b32-c06d-4b89-8e2a-71e48e889992)
+
+**Pokud QR kód nefunguje**, můžete použít **manuální kód `34970112332`**.
 
